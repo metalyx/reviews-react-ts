@@ -12,6 +12,8 @@
 
     padding: 25px;
     margin: 0 auto;
+
+    position: relative;
 }
 
 .review .reviewAuthor {
@@ -28,4 +30,36 @@
 .review .reviewText {
     margin: 0;
     text-align: center;
+}
+
+.fadeLeft {
+    animation: fadeFromLeft 500ms forwards;
+}
+
+.fadeRight {
+    animation: fadeFromRight 500ms forwards;
+}
+
+@keyframes fadeFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-150px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes fadeFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(150px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
 }
