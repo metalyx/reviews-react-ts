@@ -5,11 +5,13 @@
 }
 
 .reversed {
-    transform: rotate(180deg);
+   rotate: 180deg;
 }
 
 .arrowControlls {
+    margin-top: 15px;
     display: flex;
+    bottom: 0;
 }
 
 .arrowControlls svg {
@@ -20,7 +22,7 @@
 .arrowControlls svg {
     display: block;
     cursor: pointer;
-
+    transition: transform 350ms;
 }
 
 .arrowControlls svg path {
@@ -28,6 +30,13 @@
 }
 
 .arrowControlls svg:hover > path{
-    stroke: var(--color-accent-bc);
+    stroke: var(--color-accent-dark);
+}
 
+.arrowControlls svg:hover{
+    transform: scale(1.1);
+}
+
+.arrowControlls svg:active{
+    transform: scale(0.9);
 }

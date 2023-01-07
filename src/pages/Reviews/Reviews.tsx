@@ -36,11 +36,13 @@ const Reviews: React.FC = () => {
                 name={author}
                 text={text}
                 avatar={avatar}
-            />
-            <ArrowControlls
-                next={nextReview}
-                prev={prevReview}
-            />
+            >
+                <ArrowControlls
+                    next={nextReview}
+                    prev={prevReview}
+                />
+            </Review>
+
         </div>
     );
 };
