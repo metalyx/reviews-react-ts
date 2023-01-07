@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Review from '../../components/Review/Review';
-import Arrow from '../../assets/svg/arrows/arrowCircle.svg';
 import { REVIEWS } from '../../data/reviews';
 import './Reviews.css';
 import ArrowControlls from '../../components/ArrowControlls/ArrowControlls';
 
 const Reviews: React.FC = () => {
     const [visibleReviewIndex, setVisibleReviewIndex] = useState(0);
+    const [isFadingLeft, setIsFadingLeft] = useState(false);
+    const [isFadingRight, setIsFadingRight] = useState(false);
     const { id, author, avatar, text } = REVIEWS[visibleReviewIndex];
 
     const checkId = (number: number) => {
@@ -23,10 +24,14 @@ const Reviews: React.FC = () => {
 
     const nextReview = () => {
         checkId(visibleReviewIndex + 1);
+        setIsFadingRight(true);
+        setIsFadingLeft(false);
     }
 
     const prevReview = () => {
         checkId(visibleReviewIndex - 1);
+        setIsFadingRight(false);
+        setIsFadingLeft(true);
     }
 
     return (
@@ -36,13 +41,21 @@ const Reviews: React.FC = () => {
                 name={author}
                 text={text}
                 avatar={avatar}
+                isFadingLeft={isFadingLeft}
+                isFadingRight={isFadingRight}
             >
                 <ArrowControlls
                     next={nextReview}
                     prev={prevReview}
+                    style={{
+                        position: 'absolute',
+                        top: '50%',
+                        justifyContent: 'space-between',
+                        width: 'calc(100% + 100px)',
+                        left: '-50px'
+                    }}
                 />
             </Review>
-
         </div>
     );
 };
