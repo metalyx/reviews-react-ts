@@ -20,6 +20,8 @@
     font-size: 28px;
     margin: 15px 0;
     transition: color 350ms;
+
+    color: white;
 }
 
 .review .reviewAuthor:hover {
@@ -30,6 +32,8 @@
 .review .reviewText {
     margin: 0;
     text-align: center;
+
+    color: white;
 }
 
 .fadeLeft {
@@ -46,6 +50,10 @@
         transform: translateX(-150px);
     }
 
+    30% {
+        opacity: 0;
+    }
+
     100% {
         opacity: 1;
         transform: translateX(0px);
@@ -56,6 +64,10 @@
     0% {
         opacity: 0;
         transform: translateX(150px);
+    }
+
+    30% {
+        opacity: 0;
     }
 
     100% {
