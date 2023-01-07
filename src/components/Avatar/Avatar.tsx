@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Avatar.css';
 
 interface iAvatar {
     src?: string;
@@ -16,7 +17,7 @@ const Avatar: React.FC<iAvatar> = ({
     return (
         <>
             {src && !imageOnError && (
-                <img src={src} onError={() => setImageOnError(true)} />
+                <img className='avatar' src={src} onError={() => setImageOnError(true)} />
             )}
             {src === undefined || imageOnError && (
                 // Mock image here
