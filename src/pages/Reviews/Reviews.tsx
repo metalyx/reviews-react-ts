@@ -1,28 +1,46 @@
 import React, { useState } from 'react';
 import Review from '../../components/Review/Review';
+import Arrow from '../../assets/svg/arrows/arrowCircle.svg';
 import { REVIEWS } from '../../data/reviews';
 import './Reviews.css';
+import ArrowControlls from '../../components/ArrowControlls/ArrowControlls';
 
 const Reviews: React.FC = () => {
-    const [visibleReviewId, setVisibleReviewId] = useState(1);
+    const [visibleReviewIndex, setVisibleReviewIndex] = useState(0);
+    const { id, author, avatar, text } = REVIEWS[visibleReviewIndex];
+
+    const checkId = (number: number) => {
+        let maxIndex = REVIEWS.length - 1;
+
+        if (number > maxIndex) {
+            setVisibleReviewIndex(0);
+        } else if (number < 0) {
+            setVisibleReviewIndex(maxIndex);
+        } else {
+            setVisibleReviewIndex(number);
+        }
+    }
+
+    const nextReview = () => {
+        checkId(visibleReviewIndex + 1);
+    }
+
+    const prevReview = () => {
+        checkId(visibleReviewIndex - 1);
+    }
 
     return (
         <div className='reviews'>
-            {REVIEWS.map(({ id, author, avatar, text }) => {
-                if (visibleReviewId === id) {
-                    return (
-                        <Review
-                            key={id}
-                            name={author}
-                            text={text}
-                        />
-                    )
-                } else {
-                    return (
-                        <React.Fragment key={id} />
-                    )
-                }
-            })}
+            <Review
+                key={id}
+                name={author}
+                text={text}
+                avatar={avatar}
+            />
+            <ArrowControlls
+                next={nextReview}
+                prev={prevReview}
+            />
         </div>
     );
 };
