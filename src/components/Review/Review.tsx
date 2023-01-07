@@ -6,6 +6,7 @@ interface iReview {
     avatar?: string;
     name: string;
     text: string;
+    supriseMe?: () => void;
     isFadingLeft?: boolean;
     isFadingRight?: boolean;
     children?: React.ReactNode;
@@ -16,6 +17,7 @@ const Review: React.FC<iReview> = ({
     text,
     avatar,
     children,
+    supriseMe,
     isFadingLeft = false,
     isFadingRight = false
 }) => {
@@ -32,6 +34,9 @@ const Review: React.FC<iReview> = ({
                 <p className={`reviewText ${isFadingLeft ? 'fadeLeft' : ''} ${isFadingRight ? 'fadeRight' : ''}`}>
                     {text}
                 </p>
+                <button onClick={supriseMe} className='supriseMeButton'>
+                    Suprise Me
+                </button>
                 <div style={{ width: '100%' }}>
                     {children}
                 </div>

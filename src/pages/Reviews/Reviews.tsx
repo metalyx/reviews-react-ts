@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import Review from '../../components/Review/Review';
 import { REVIEWS } from '../../data/reviews';
+import { getRandomInt } from '../../helpers/getRandomInt';
 import './Reviews.css';
 import ArrowControlls from '../../components/ArrowControlls/ArrowControlls';
 
 const Reviews: React.FC = () => {
     const [visibleReviewIndex, setVisibleReviewIndex] = useState(0);
     const [isFadingLeft, setIsFadingLeft] = useState(false);
-    const [isFadingRight, setIsFadingRight] = useState(false);
+    const [isFadingRight, setIsFadingRight] = useState(true);
     const { id, author, avatar, text } = REVIEWS[visibleReviewIndex];
 
     const checkId = (number: number) => {
@@ -34,6 +35,14 @@ const Reviews: React.FC = () => {
         setIsFadingLeft(true);
     }
 
+    const supriseMe = () => {
+        let rand;
+        do {
+            rand = getRandomInt(REVIEWS.length);
+            setVisibleReviewIndex(rand);
+        } while (rand === visibleReviewIndex && REVIEWS.length > 1)
+    }
+
     return (
         <div className='reviews'>
             <Review
@@ -43,6 +52,7 @@ const Reviews: React.FC = () => {
                 avatar={avatar}
                 isFadingLeft={isFadingLeft}
                 isFadingRight={isFadingRight}
+                supriseMe={supriseMe}
             >
                 <ArrowControlls
                     next={nextReview}
