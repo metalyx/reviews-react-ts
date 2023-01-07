@@ -1,0 +1,42 @@
+.arrowControlls button {
+    appearance: none;
+    background: none;
+    border: none;
+}
+
+.reversed {
+   rotate: 180deg;
+}
+
+.arrowControlls {
+    margin-top: 15px;
+    display: flex;
+    bottom: 0;
+}
+
+.arrowControlls svg {
+    width: 40px;
+    height: 40px;
+}
+
+.arrowControlls svg {
+    display: block;
+    cursor: pointer;
+    transition: transform 350ms;
+}
+
+.arrowControlls svg path {
+    transition: all 350ms;
+}
+
+.arrowControlls svg:hover > path{
+    stroke: var(--color-accent-dark);
+}
+
+.arrowControlls svg:hover{
+    transform: scale(1.1);
+}
+
+.arrowControlls svg:active{
+    transform: scale(0.9);
+}
