@@ -27,4 +27,18 @@ export const REVIEWS = [
         avatar: 'https://www.westernunion.com/staticassets/content/dam/wu/jm/responsive/send-money-in-person-from-jamaica-resp.png',
         rating: 5,
     },
+    {
+        id: 5,
+        author: "John Mayson",
+        text: "Non enim praesent elementum facilisis, leo vel fringilla est ullamcorper eget nulla facilisi. Etiam dignissim diam, quis enim lobortis, scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis mauris sit amet massa vitae tortor condimentum lacinia quis vel eros donec ac odio tempor orci dapibus ultrices in iaculis nunc sed augue lacus viverra vitae congue eu consequat ac felis donec et odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis.",
+        avatar: 'https://somerandomcorruptedlink.com/neverexisteduserimage.png',
+        rating: 2,
+    },
+    {
+        id: 6,
+        author: "Undefined User",
+        text: "Non enim praesent elementum facilisis, leo vel fringilla est ullamcorper eget nulla facilisi. Etiam dignissim diam, quis enim lobortis, scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis mauris sit amet massa vitae tortor condimentum lacinia quis vel eros donec ac odio tempor orci dapibus ultrices in iaculis nunc sed augue lacus viverra vitae congue eu consequat ac felis donec et odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis.",
+        // avatar: 'https://somerandomcorruptedlink.com/neverexisteduserimage.png',
+        rating: 2,
+    },
 ]
