@@ -12,12 +12,23 @@
 
     padding: 25px;
     margin: 0 auto;
+    position: relative;
+
+}
+
+.review .transitionContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
 }
 
 .review .reviewAuthor {
     font-size: 28px;
     margin: 15px 0;
     transition: color 350ms;
+
+    color: white;
 }
 
 .review .reviewAuthor:hover {
@@ -28,4 +39,98 @@
 .review .reviewText {
     margin: 0;
     text-align: center;
+
+    color: white;
+}
+
+.fadeLeft {
+    animation: fadeFromLeft 500ms forwards;
+}
+
+.fadeRight {
+    animation: fadeFromRight 500ms forwards;
+}
+
+@keyframes fadeFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-150px);
+    }
+
+    30% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes fadeFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(150px);
+    }
+
+    30% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.supriseMeButton {
+    appearance: none;
+    border: none;
+    background-color: var(--color-accent-olive);
+    color: white;
+
+    font-size: 18px;
+
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 20px;
+
+    cursor: pointer;
+
+    transition: all 350ms;
+}
+
+.supriseMeButton:hover {
+    transform: scale(1.1);
+}
+
+.supriseMeButton:active {
+    transform: scale(0.9);
+    opacity: 0.9;
+}
+
+.goldStar {
+    color: transparent;
+    text-shadow: 0 0 0 gold;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.emptyStar {
+    color: transparent;
+    text-shadow: 0 0 0 white;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.reviews .rating {
+    margin-bottom: 15px;
 }
