@@ -29,7 +29,7 @@
 }
 
 .arrowControlls svg > path{
-    stroke: var(--color-clean);
+    stroke: var(--color-accent-olive);
 }
 
 .arrowControlls svg:hover > path{

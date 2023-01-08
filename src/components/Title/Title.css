@@ -1,0 +1,17 @@
+.title {
+    display: flex;
+    margin: 0;
+    color: var(--color-accent-olive);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 35px;
+}
+
+.title .decorationLine {
+    display: block;
+    width: 70px;
+    height: 5px;
+    background-color: var(--color-accent-olive);
+    margin: 10px 0;
+}
