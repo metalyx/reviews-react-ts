@@ -1,29 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import userImage from '../../assets/png/user.png';
 import './Avatar.css';
 
 interface iAvatar {
     src?: string;
-    sm?: boolean;
-    lg?: boolean;
     className?: string;
 }
 
 const Avatar: React.FC<iAvatar> = ({
     src,
-    lg = true,
-    sm = false,
     className
 }) => {
     const [imageOnError, setImageOnError] = useState(false);
+    
+    useEffect(() => {
+        if (src === undefined || src === null) {
+            setImageOnError(true);
+        }
+    }, []);
 
     return (
         <>
             {src && !imageOnError && (
                 <img className={`avatar ${className}`} src={src} onError={() => setImageOnError(true)} />
             )}
-            {src === undefined || imageOnError && (
-                // Mock image here
-                <></>
+            {imageOnError && (
+                <img className={`avatar ${className}`} src={userImage} />
             )}
         </>
     );
