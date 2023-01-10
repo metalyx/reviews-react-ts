@@ -2,11 +2,15 @@ import React from 'react';
 import Avatar from '../Avatar/Avatar';
 import './Review.css';
 
-interface iReview {
+type ReviewContent = {
     avatar?: string;
     name: string;
     text: string;
     rating: number;
+}
+
+interface iReview {
+    content: ReviewContent;
     surpriseMe?: () => void;
     isFadingLeft?: boolean;
     isFadingRight?: boolean;
@@ -14,24 +18,22 @@ interface iReview {
 }
 
 const Review: React.FC<iReview> = ({
-    name,
-    text,
-    avatar,
-    rating,
+    content,
     children,
     surpriseMe,
     isFadingLeft = false,
     isFadingRight = false
 }) => {
+    const { name, rating, text, avatar } = content;
+
     return (
         <div className='reviewContainer'>
             <div className={`review`}>
                 <div className={`transitionContainer ${isFadingLeft ? 'fadeLeft' : ''} ${isFadingRight ? 'fadeRight' : ''}`}>
                     <Avatar
                         src={avatar}
-                        className={`${isFadingLeft ? 'fadeLeft' : ''} ${isFadingRight ? 'fadeRight' : ''}`}
                     />
-                    <h4 className={`reviewAuthor ${isFadingLeft ? 'fadeLeft' : ''} ${isFadingRight ? 'fadeRight' : ''}`}>
+                    <h4 className='reviewAuthor'>
                         {name}
                     </h4>
                     <div className='rating'>
@@ -47,14 +49,14 @@ const Review: React.FC<iReview> = ({
                             <span key={index} className='emptyStar'>{item}</span>
                         ))}
                     </div>
-                    <p className={`reviewText ${isFadingLeft ? 'fadeLeft' : ''} ${isFadingRight ? 'fadeRight' : ''}`}>
+                    <p className='reviewText' title={text}>
                         {text}
                     </p>
                 </div>
                 <button onClick={surpriseMe} className='supriseMeButton'>
                     Surprise Me
                 </button>
-                <div style={{ width: '100%' }}>
+                <div>
                     {children}
                 </div>
             </div>
