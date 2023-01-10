@@ -11,10 +11,10 @@ interface iArrowControlls {
 const ArrowControlls: React.FC<iArrowControlls> = ({ next, prev, style }) => {
     return (
         <div className="arrowControlls" style={style}>
-            <button onClick={prev}>
+            <button onClick={prev} name='previousReview'>
                 <Arrow className='reversed' />
             </button>
-            <button onClick={next}>
+            <button onClick={next} name='nextReview'>
                 <Arrow />
             </button>
         </div>

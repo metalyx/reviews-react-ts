@@ -22,10 +22,19 @@ const Avatar: React.FC<iAvatar> = ({
     return (
         <>
             {src && !imageOnError && (
-                <img className={`avatar ${className}`} src={src} onError={() => setImageOnError(true)} />
+                <img
+                    className={`avatar ${className}`}
+                    src={src}
+                    onError={() => setImageOnError(true)}
+                    alt='User Avatar'
+                />
             )}
             {imageOnError && (
-                <img className={`avatar ${className}`} src={userImage} />
+                <img
+                    className={`avatar ${className}`}
+                    src={userImage}
+                    alt='User Avatar'
+                />
             )}
         </>
     );

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import Review from '../../components/Review/Review';
 import { REVIEWS } from '../../data/reviews';
 import { getRandomInt } from '../../helpers/getRandomInt';
-import './Reviews.css';
 import ArrowControlls from '../../components/ArrowControlls/ArrowControlls';
 import Title from '../../components/Title/Title';
+import './Reviews.css';
 
 const Reviews: React.FC = () => {
     const [visibleReviewIndex, setVisibleReviewIndex] = useState(0);
@@ -12,7 +12,7 @@ const Reviews: React.FC = () => {
     const [isFadingRight, setIsFadingRight] = useState(true);
     const { id, author, avatar, text, rating } = REVIEWS[visibleReviewIndex];
 
-    const checkId = (number: number) => {
+    const changeId = (number: number) => {
         let maxIndex = REVIEWS.length - 1;
 
         if (number > maxIndex) {
@@ -25,22 +25,26 @@ const Reviews: React.FC = () => {
     }
 
     const nextReview = () => {
-        checkId(visibleReviewIndex + 1);
+        changeId(visibleReviewIndex + 1);
         setIsFadingRight(true);
         setIsFadingLeft(false);
     }
 
     const prevReview = () => {
-        checkId(visibleReviewIndex - 1);
+        changeId(visibleReviewIndex - 1);
         setIsFadingRight(false);
         setIsFadingLeft(true);
     }
 
+    // Pick random review and show
     const surpriseMe = () => {
         let rand;
+
         do {
             rand = getRandomInt(REVIEWS.length);
             setVisibleReviewIndex(rand);
+    
+            // Just keep randomize until we got other review than current
         } while (rand === visibleReviewIndex && REVIEWS.length > 1)
     }
 
@@ -49,10 +53,7 @@ const Reviews: React.FC = () => {
             <Title text='Our Reviews' />
             <Review
                 key={id}
-                name={author}
-                text={text}
-                avatar={avatar}
-                rating={rating}
+                content={{ name: author, rating, text, avatar }}
                 isFadingLeft={isFadingLeft}
                 isFadingRight={isFadingRight}
                 surpriseMe={surpriseMe}
